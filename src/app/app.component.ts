@@ -1,30 +1,47 @@
-/*!
- * Copyright (c) 2020-Present, Okta, Inc. and/or its affiliates. All rights reserved.
- * The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
- *
- * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *
- * See the License for the specific language governing permissions and limitations under the License.
- */
+import { Component,Inject } from '@angular/core';
+// import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { IDToken, OktaAuth } from '@okta/okta-auth-js';
 
-import { Component, Inject } from '@angular/core';
+
 import { OKTA_AUTH, OktaAuthStateService } from '@okta/okta-angular';
-import { OktaAuth } from '@okta/okta-auth-js';
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  title = 'okta-hosted-login';
+  username: string | undefined;
+  email: string | undefined;
+  public appPages = [
+    { title: 'Capabilities', url: '/capabilities', icon: 'paper-plane' }, 
+    // { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
+    // { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
+    // { title: 'Archived', url: '/folder/archived', icon: 'archive' },
+    // { title: 'Trash', url: '/folder/trash', icon: 'trash' },
+    // { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+  ];
+  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  constructor(private router: Router,private menuCtrl: MenuController,
+    @Inject(OKTA_AUTH) private oktaAuth: OktaAuth, public authService: OktaAuthStateService) {}
+  
 
-  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, public authService: OktaAuthStateService) {
+  // logout() {
+  //   this.menuCtrl.close().then(() => {
+  //     this.authService.logout();
+  //   });
+    
+
+  async ngOnInit() {
+    const idToken: IDToken = await this.oktaAuth.tokenManager.get('idToken') as IDToken;
+    console.log("ID TOKEN : ", idToken);
+    this.username = idToken.claims.name;
+    this.email = idToken.claims.email;
+
   }
-
   async login() {
     await this.oktaAuth.signInWithRedirect();
   }
@@ -32,4 +49,7 @@ export class AppComponent {
   async logout() {
     await this.oktaAuth.signOut();
   }
+    
+
+  
 }
