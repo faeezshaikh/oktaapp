@@ -1,15 +1,16 @@
 <ion-header [translucent]="true">
+
   <ion-toolbar color="{{ type === 'Tier' ? 'secondary' : 'warning'}}">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title style="color:purple;"  style="text-align: center">{{ type === 'Tier' ? 'L2' : 'L3'}} - {{ name }}</ion-title>
+    <ion-title style="color:purple;"  style="text-align: center">{{ type === 'Tier' ? 'L1' : 'L2'}} - {{ name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content [fullscreen]="true">
-  <ion-card color="medium">
+  <!-- <ion-card color="medium">
     <ion-card-header>
 
       <ion-card-title  style="text-align: center">{{parentName}} <span *ngIf="parentName"> ==>  </span> {{item.Name}}</ion-card-title>
@@ -33,19 +34,22 @@
 
 
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <ion-grid>
     <ion-row>
       <ion-card *ngFor="let child of children " tooltip="I'm a tooltip below a button">
-        <ion-card-header color="{{ type === 'Tier' ? 'warning' : 'secondary'}}">
-          <ion-card-title style="color:white">{{child.Name}}</ion-card-title>
+        <!-- <ion-card-header color="{{ type === 'Tier' ? 'warning' : 'secondary'}}"> -->
+          <ion-card-header color="medium">
+            <!-- <ion-card-title style="color:rgb(255, 255, 255)">{{child.Name}}</ion-card-title> -->
+          <ion-card-title style="color:rgb(34, 5, 5)">{{child.Name}}</ion-card-title>
 
 
 
           <div class="tooltip">
-            <ion-card-subtitle style="color:white"> {{ (child.Description.length>60)? (child.Description |
-              slice:0:60)+'...':(child.Description) }}</ion-card-subtitle>
+            &nbsp;
+            <ion-card-subtitle style="color:rgb(81, 76, 76)"> {{ (child.Description.length>60)? (child.Description | slice:0:60)+'...':(child.Description) }}</ion-card-subtitle>
+            <!-- <ion-card-subtitle style="color:rgb(255, 255, 255)"> {{ (child.Description.length>60)? (child.Description | slice:0:60)+'...':(child.Description) }}</ion-card-subtitle> -->
 
             <span class="tooltiptext">{{child.Description}}</span>
           </div>
@@ -55,14 +59,16 @@
             <ion-item *ngFor="let subchild of child.Children " (click)="showDetailsModal(subchild)">
 
 
-              <ion-icon color="{{ type === 'Tier' ? 'warning' : 'secondary'}}" name="logo-ionic"></ion-icon> &nbsp;
+              <!-- <ion-icon color="{{ type === 'Tier' ? 'warning' : 'secondary'}}" name="logo-ionic"></ion-icon> &nbsp; -->
+              <ion-icon color="dark" name="logo-ionic"></ion-icon> &nbsp;
               <ion-label class="pointer">{{subchild.Name}}</ion-label> &nbsp;&nbsp;
 
               <!-- <ion-badge color="success">{{subchild.Attributes[0].AttributeValue}}</ion-badge> -->
 
               <ion-badge *ngIf="subchild?.Attributes?.[0]?.AttributeValue"
                 [color]="getColor(subchild.Attributes[0].AttributeValue)">
-                {{ subchild.Attributes[0].AttributeValue }}
+                <!-- {{ subchild.Attributes[0].AttributeValue }} -->
+                {{(subchild.Attributes[0].AttributeValue.length>20)? (subchild.Attributes[0].AttributeValue | slice:0:20)+'...':(subchild.Attributes[0].AttributeValue)}}
               </ion-badge>
 
             </ion-item>
