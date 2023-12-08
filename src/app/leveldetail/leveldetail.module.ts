@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LeveldetailPageRoutingModule } from './leveldetail-routing.module';
 
 import { LeveldetailPage } from './leveldetail.page';
+import { TruncatePipe } from '../pipes/truncate.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { LeveldetailPage } from './leveldetail.page';
     IonicModule,
     LeveldetailPageRoutingModule
   ],
-  declarations: [LeveldetailPage]
+  declarations: [LeveldetailPage,TruncatePipe]
 })
 export class LeveldetailPageModule {}

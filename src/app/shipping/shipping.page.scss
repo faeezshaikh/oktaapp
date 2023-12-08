@@ -1,3 +1,49 @@
 ion-card {
     cursor: pointer;
 }
+
+#chevron {
+    position: relative;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 6px;
+    height: 100px;
+    width: 200px;
+    overflow: hidden;
+  }
+  
+  #chevron:before,
+  #chevron:after {
+    content: '';
+    position: absolute;
+    background: red;
+    height: 50%;
+    width: 50%;
+    z-index: 1; /* Ensures chevron shapes are below the text */
+  }
+  
+  #chevron:before {
+    top: 0;
+    left: 25%;
+    transform: skew(6deg, 0deg);
+    transform-origin: top left;
+  }
+  
+  #chevron:after {
+    bottom: 0;
+    left: 25%;
+    transform: skew(-6deg, 0deg);
+    transform-origin: bottom left;
+  }
+  
+  #chevron span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Ensure good contrast with chevron color */
+    font-size: 1em; /* Adjust as needed */
+    white-space: nowrap;
+    z-index: 2; /* Higher z-index to bring text to the front */
+  }
+  

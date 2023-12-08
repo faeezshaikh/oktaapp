@@ -29,6 +29,7 @@ import oktaConfig from './app.config';
 import { AuthGuard } from './auth.guard';
 
 
+
 const oktaAuth = new OktaAuth(oktaConfig.oidc);
 
 const appRoutes: Routes = [
