@@ -26,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 // import { ProfileComponent } from './profile/profile.component';
 
 import oktaConfig from './app.config';
+import { AuthGuard } from './auth.guard';
 
 
 const oktaAuth = new OktaAuth(oktaConfig.oidc);
@@ -35,6 +36,11 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: 'capabilities',
     pathMatch: "full",
+  },
+  ///[ Okta 3 ]
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'login/callback',
@@ -47,7 +53,7 @@ const appRoutes: Routes = [
   // },
   {
     path: 'capabilities',
-    canActivate: [OktaAuthGuard],
+    canActivate: [AuthGuard],   ///[ Okta 4 ] Change to OktaAuthGuard
     loadChildren: () => import('./shipping/shipping.module').then( m => m.ShippingPageModule)
   },
   {
