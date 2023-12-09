@@ -10,6 +10,7 @@ export class InfomapPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("info map page details");
   }
 
 }

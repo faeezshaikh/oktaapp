@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { log } from 'console';
 
 @Component({
   selector: 'app-card-details',
@@ -12,6 +13,7 @@ export class CardDetailsPage implements OnInit {
   constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
+    console.log("init card details");
   }
 
   cancel() {
