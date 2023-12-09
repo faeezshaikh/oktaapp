@@ -20,7 +20,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Capability Map', url: '/capabilities', icon: 'pulse' }, 
     { title: 'Value Map', url: '/valuemap', icon: 'trending-up' }, 
-    { title: 'Information Map', url: '/info', icon: 'clipboard' }, 
+    { title: 'Information Map', url: '/infomap', icon: 'clipboard' }, 
     // { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
     // { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
     // { title: 'Archived', url: '/folder/archived', icon: 'archive' },

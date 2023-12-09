@@ -63,6 +63,11 @@ const appRoutes: Routes = [
     loadChildren: () => import('./valuemap/valuemap.module').then( m => m.ValuemapPageModule)
   },
   {
+    path: 'infomap',
+    canActivate: [AuthGuard],   ///[ Okta 4 ] Change to OktaAuthGuard
+    loadChildren: () => import('./infomap/infomap.module').then( m => m.InfomapPageModule)
+  },
+  {
     path: 'card-details',
     loadChildren: () => import('./card-details/card-details.module').then( m => m.CardDetailsPageModule)
   }
