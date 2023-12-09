@@ -5,60 +5,60 @@ interface IrisData {
    }
   
   export interface Capability {
-      Type: string;
-      Name: string;
-      InternalId: string;
-      CreatedBy: string;
-      CreatedTimestamp: string;
-      ModifiedBy: string;
-      ModifiedTimestamp: string;
-      ProtectfromDelete: boolean;
-      Filtered: boolean;
-      Children: Level1sChild[]
+      type: string;
+      name: string;
+      internalId: string;
+      createdBy: string;
+      createdTimestamp: string;
+      modifiedBy: string;
+      modifiedTimestamp: string;
+      protectfromDelete: boolean;
+      filtered: boolean;
+      children: Level1sChild[]
    }
   
   export interface Level1sChild {
-      Type: string;
-      Name: string;
-      Description: string;
-      InternalId: string;
-      CreatedBy: string;
-      CreatedTimestamp: string;
-      ModifiedBy: string;
-      ModifiedTimestamp: string;
-      ProtectfromDelete: boolean;
-      Filtered: boolean;
-      Attributes: Attrib[],
-      Children: Level2sChild[]
-      Comments: Comment[]
+      type: string;
+      name: string;
+      description: string;
+      internalId: string;
+      createdBy: string;
+      createdTimestamp: string;
+      modifiedBy: string;
+      modifiedTimestamp: string;
+      protectfromDelete: boolean;
+      filtered: boolean;
+      attributes: Attrib[],
+      children: Level2sChild[]
+      comments: Comment[]
    }
   
    interface Attrib {
-    AttributeName: string;
-    AttributeValue: string;
+    attributeName: string;
+    attributeValue: string;
   
    }
   
    interface Comment {
-    CommentingUser: string;
-    Comment: string;
-    CommentDate: string;
-    CommentArchived: boolean
+    commentingUser: string;
+    comment: string;
+    commentDate: string;
+    commentArchived: boolean
    }
   
    export interface Level2sChild {
-    Type: string;
-    Name: string;
-    Description: string;
-    InternalId: string;
-    CreatedBy: string;
-    CreatedTimestamp: string;
-    ModifiedBy: string;
-    ModifiedTimestamp: string;
-    Filtered: boolean;
-    CapEnablesStageRelationship: any[],
-    Attributes: Attrib[],
-    Children: Level2sChild[]
-    Comments: Comment[]
+    type: string;
+    name: string;
+    description: string;
+    internalId: string;
+    createdBy: string;
+    createdTimestamp: string;
+    modifiedBy: string;
+    modifiedTimestamp: string;
+    filtered: boolean;
+    capEnablesStageRelationship: any[],
+    attributes: Attrib[],
+    children: Level2sChild[]
+    comments: Comment[]
   
    }

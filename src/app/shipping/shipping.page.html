@@ -28,16 +28,16 @@
           <ion-card  class="ion-text-center" color="medium" (click)="navigateToPage(item)">
             <ion-card-header>
               <!-- <fa-icon [icon]="['fas', 'scale-balanced']" size="2x"></fa-icon> -->
-              <ion-card-title>{{ item.Name }}</ion-card-title>
+              <ion-card-title>{{ item.name }}</ion-card-title>
             </ion-card-header>
           </ion-card>
 
           <ion-grid>
-            <ion-row *ngFor="let child of item?.Children">
+            <ion-row *ngFor="let child of item?.children">
               <ion-card  class="ion-text-center" style="width: 100% !important;"
-                 (click)="navigateToPage2(child,item.Name)"  color="light">
+                 (click)="navigateToPage2(child,item.name)"  color="light">
                 <ion-card-header>
-                  <ion-card-title>{{ child.Name }}</ion-card-title>
+                  <ion-card-title>{{ child.name }}</ion-card-title>
 
                 </ion-card-header>
               

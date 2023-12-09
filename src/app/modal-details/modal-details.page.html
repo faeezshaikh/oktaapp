@@ -14,13 +14,13 @@
 
   <ion-card>
     <ion-card-header color="medium">
-      <ion-card-title>{{value.Name}}</ion-card-title>
-      <ion-card-subtitle>Type: {{value.Type}}</ion-card-subtitle>
+      <ion-card-title>{{value.name}}</ion-card-title>
+      <ion-card-subtitle>Type: {{value.type}}</ion-card-subtitle>
     </ion-card-header>
   <ion-row>&nbsp;</ion-row>
     <ion-card-content>
       <strong>Description:</strong>
-      {{value.Description}}
+      {{value.description}}
 
       <ion-row>&nbsp;</ion-row>
 <table>
@@ -31,40 +31,40 @@
   </tr>
   <tr>
     <td>Internal Id:</td>
-    <td>{{value.InternalId}}</td>
+    <td>{{value.internalId}}</td>
 
   </tr>
   <tr>
     <td>CreatedBy</td>
-    <td>{{value.CreatedBy}}</td>
+    <td>{{value.createdBy}}</td>
 
   </tr>
   <tr>
     <td>CreatedTimestamp</td>
-    <td>{{value.CreatedTimestamp}}</td>
+    <td>{{value.createdTimestamp}}</td>
 
   </tr>
   <tr>
     <td>ModifiedBy</td>
-    <td>{{value.ModifiedBy}}</td>
+    <td>{{value.modifiedBy}}</td>
 
   </tr>
   <tr>
     <td>ModifiedTimestamp</td>
-    <td>{{value.ModifiedTimestamp}}</td>
+    <td>{{value.modifiedTimestamp}}</td>
 
   </tr>
   <tr>
     <td>Status</td>
-    <td>{{value.Attributes[0].AttributeValue }}</td>
+    <td>{{value.attributes[0].attributeValue }}</td>
 
   </tr>
-  <tr *ngIf="value.Comments && value.Comments.length>0">
+  <tr *ngIf="value.comments && value.comments.length>0">
     <td>Comments</td>
     <td>
-      <ion-row *ngFor="let comment of value.Comments">
-          <ion-row><strong>Author: </strong> {{comment.CommentingUser}}</ion-row>
-          <ion-row><strong>Comment: </strong> {{comment.Comment}}</ion-row>
+      <ion-row *ngFor="let comment of value.comments">
+          <ion-row><strong>Author: </strong> {{comment.commentingUser}}</ion-row>
+          <ion-row><strong>Comment: </strong> {{comment.comment}}</ion-row>
           <ion-row>&nbsp;</ion-row>
       </ion-row>
    

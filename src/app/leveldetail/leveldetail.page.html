@@ -42,33 +42,33 @@
         <!-- <ion-card-header color="{{ type === 'Tier' ? 'warning' : 'secondary'}}"> -->
           <ion-card-header color="medium">
             <!-- <ion-card-title style="color:rgb(255, 255, 255)">{{child.Name}}</ion-card-title> -->
-          <ion-card-title style="color:rgb(34, 5, 5)">{{child.Name}}</ion-card-title>
+          <ion-card-title style="color:rgb(34, 5, 5)">{{child.name}}</ion-card-title>
 
 
 
           <div class="tooltip">
             &nbsp;
-            <ion-card-subtitle style="color:rgb(81, 76, 76)"> {{ child.Description | truncate:60 }}</ion-card-subtitle>
+            <ion-card-subtitle style="color:rgb(81, 76, 76)"> {{ child.description | truncate:60 }}</ion-card-subtitle>
             <!-- <ion-card-subtitle style="color:rgb(255, 255, 255)"> {{ (child.Description.length>60)? (child.Description | slice:0:60)+'...':(child.Description) }}</ion-card-subtitle> -->
 
-            <span class="tooltiptext">{{child.Description}}</span>
+            <span class="tooltiptext">{{child.description}}</span>
           </div>
         </ion-card-header>
         <ion-card-content>
           <ion-list>
-            <ion-item *ngFor="let subchild of child.Children " (click)="showDetailsModal(subchild)">
+            <ion-item *ngFor="let subchild of child.children " (click)="showDetailsModal(subchild)">
 
 
               <!-- <ion-icon color="{{ type === 'Tier' ? 'warning' : 'secondary'}}" name="logo-ionic"></ion-icon> &nbsp; -->
               <ion-icon color="dark" name="logo-ionic"></ion-icon> &nbsp;
-              <ion-label class="pointer">{{subchild.Name}}</ion-label> &nbsp;&nbsp;
+              <ion-label class="pointer">{{subchild.name}}</ion-label> &nbsp;&nbsp;
 
               <!-- <ion-badge color="success">{{subchild.Attributes[0].AttributeValue}}</ion-badge> -->
 
-              <ion-badge *ngIf="subchild?.Attributes?.[0]?.AttributeValue"
-                [color]="getColor(subchild.Attributes[0].AttributeValue)">
+              <ion-badge *ngIf="subchild?.attributes?.[0]?.attributeValue"
+                [color]="getColor(subchild.attributes[0].attributeValue)">
                 <!-- {{ subchild.Attributes[0].AttributeValue }} -->
-                {{(subchild.Attributes[0].AttributeValue.length>20)? (subchild.Attributes[0].AttributeValue | slice:0:20)+'...':(subchild.Attributes[0].AttributeValue)}}
+                {{(subchild.attributes[0].attributeValue.length>20)? (subchild.attributes[0].attributeValue | slice:0:20)+'...':(subchild.attributes[0].attributeValue)}}
               </ion-badge>
 
             </ion-item>

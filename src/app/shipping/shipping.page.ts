@@ -81,9 +81,9 @@ export class ShippingPage implements OnInit {
 
  
     this.filteredData = this.data.filter(card => 
-      card.Name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      card.Children.some(child => 
-        child.Name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+      card.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      card.children.some(child => 
+        child.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
       )
     ;
   }

@@ -23,11 +23,11 @@ export class LeveldetailPage implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     const item = navigation?.extras.state?.['data'];
     const parentName = navigation?.extras.state?.['parentName'];
-    // console.log("Accepted item", item);
-    this.name = item.Name;
+    console.log("Accepted item", item);
+    this.name = item.name;
     this.item = item;
-    this.children = item.Children;
-    this.type = item.Type;
+    this.children = item.children;
+    this.type = item.type;
     this.parentName = parentName;
     
   }
