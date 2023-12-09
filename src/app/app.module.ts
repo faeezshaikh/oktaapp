@@ -58,6 +58,11 @@ const appRoutes: Routes = [
     loadChildren: () => import('./shipping/shipping.module').then( m => m.ShippingPageModule)
   },
   {
+    path: 'valuemap',
+    canActivate: [AuthGuard],   ///[ Okta 4 ] Change to OktaAuthGuard
+    loadChildren: () => import('./valuemap/valuemap.module').then( m => m.ValuemapPageModule)
+  },
+  {
     path: 'card-details',
     loadChildren: () => import('./card-details/card-details.module').then( m => m.CardDetailsPageModule)
   }

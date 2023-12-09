@@ -19,7 +19,7 @@ export class AppComponent {
   email: string | undefined;
   public appPages = [
     { title: 'Capability Map', url: '/capabilities', icon: 'pulse' }, 
-    { title: 'Value Map', url: '/values', icon: 'trending-up' }, 
+    { title: 'Value Map', url: '/valuemap', icon: 'trending-up' }, 
     { title: 'Information Map', url: '/info', icon: 'clipboard' }, 
     // { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
     // { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
