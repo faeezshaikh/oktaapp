@@ -14,4 +14,10 @@ export class MyDataService {
     // return this.http.get('/assets/data.json');
     return this.http.get('/assets/iris.json');
   }
+
+  getValueMapData(): Observable<any> {
+    // console.log('Fetching data...');
+    // return this.http.get('/assets/data.json');
+    return this.http.get('/assets/valuestream.json');
+  }
 }

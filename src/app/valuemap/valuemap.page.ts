@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MyDataService } from '../data.service';
+import { MainElement } from '../ValueStream';
 
 @Component({
   selector: 'app-valuemap',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValuemapPage implements OnInit {
 
-  constructor() { }
+  data: MainElement[] = [];
+  constructor(private dataService: MyDataService) { }
 
   ngOnInit() {
+
+        this.dataService.getValueMapData().subscribe(
+          (results: MainElement[]) => {
+            this.data = results;
+            // this.filteredData= results; 
+            console.log('Value Maps' + this.data);
+            
+          },
+          (error) => {
+            console.error('Error fetching data', error);
+          }
+        );
+      
   }
 
 }

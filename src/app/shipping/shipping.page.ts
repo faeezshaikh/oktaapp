@@ -7,28 +7,6 @@ import { LeveldetailPage } from '../leveldetail/leveldetail.page';
 import { Capability, Level1sChild } from '../Capability';
 
 
-interface CardData {
-  id: number;
-  type: string;
-  title: string;
-  content: string;
-  color: string;
-  elements: ElementData[]; // Assuming each element has the same structure
-}
-
-interface ElementData {
-  id: number;
-  type: string;
-  title: string;
-  content: string;
-  color: string;
-}
-
-///
-
-
-///
-
 @Component({
   selector: 'app-shipping',
   templateUrl: './shipping.page.html',
@@ -42,7 +20,6 @@ export class ShippingPage implements OnInit {
   data: Capability[] = [];
   filteredData: Capability[] = [];
   searchTerm: string = '';
-  message = 'This modal example uses the modalController to present and dismiss modals.';
   constructor(private dataService: MyDataService,private modalCtrl: ModalController,private route: Router) {}
 
   ngOnInit() {
@@ -89,8 +66,6 @@ export class ShippingPage implements OnInit {
   }
 
   navigateToPage(item: Capability ) {
-
-  
     this.route.navigate(['/leveldetail'], {
       state: { data: item }
     });
@@ -110,7 +85,7 @@ export class ShippingPage implements OnInit {
     const { data, role } = await modal.onWillDismiss();
 
     if (role === 'confirm') {
-      this.message = `Hello, ${data}!`;
+      //this.message = `Hello, ${data}!`;
     }
   }
 
