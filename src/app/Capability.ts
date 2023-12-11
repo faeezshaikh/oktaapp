@@ -9,6 +9,7 @@ interface IrisData {
       name: string;
       internalId: string;
       createdBy: string;
+      status: string;
       createdTimestamp: string;
       modifiedBy: string;
       modifiedTimestamp: string;
@@ -23,6 +24,7 @@ interface IrisData {
       description: string;
       internalId: string;
       createdBy: string;
+      status: string;
       createdTimestamp: string;
       modifiedBy: string;
       modifiedTimestamp: string;
@@ -51,6 +53,7 @@ interface IrisData {
     name: string;
     description: string;
     internalId: string;
+    status: string;
     createdBy: string;
     createdTimestamp: string;
     modifiedBy: string;

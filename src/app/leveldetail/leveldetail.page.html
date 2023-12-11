@@ -40,9 +40,9 @@
     <ion-row>
       <ion-card *ngFor="let child of children " tooltip="I'm a tooltip below a button">
         <!-- <ion-card-header color="{{ type === 'Tier' ? 'warning' : 'secondary'}}"> -->
-          <ion-card-header color="medium">
+          <ion-card-header color="medium" (click)="showDetailsModal(child)"  class="pointer">
             <!-- <ion-card-title style="color:rgb(255, 255, 255)">{{child.Name}}</ion-card-title> -->
-          <ion-card-title style="color:rgb(34, 5, 5)">{{child.name}}</ion-card-title>
+          <ion-card-title style="color:rgb(34, 5, 5)" class="pointer">{{child.name}}</ion-card-title>
 
 
 
@@ -65,10 +65,10 @@
 
               <!-- <ion-badge color="success">{{subchild.Attributes[0].AttributeValue}}</ion-badge> -->
 
-              <ion-badge *ngIf="subchild?.attributes?.[0]?.attributeValue"
-                [color]="getColor(subchild.attributes[0].attributeValue)">
+              <ion-badge *ngIf="subchild.status"
+                [color]="getColor(subchild.status)">
                 <!-- {{ subchild.Attributes[0].AttributeValue }} -->
-                {{(subchild.attributes[0].attributeValue.length>20)? (subchild.attributes[0].attributeValue | slice:0:20)+'...':(subchild.attributes[0].attributeValue)}}
+                {{(subchild.status.length>20)? (subchild.status | slice:0:20)+'...':(subchild.status)}}
               </ion-badge>
 
             </ion-item>

@@ -29,21 +29,21 @@
     <th>Value</th>
 
   </tr>
-  <tr>
+  <!-- <tr>
     <td>Internal Id:</td>
     <td>{{value.internalId}}</td>
 
-  </tr>
+  </tr> -->
   <tr>
     <td>CreatedBy</td>
     <td>{{value.createdBy}}</td>
 
   </tr>
-  <tr>
+  <!-- <tr>
     <td>CreatedTimestamp</td>
     <td>{{value.createdTimestamp}}</td>
 
-  </tr>
+  </tr> -->
   <tr>
     <td>ModifiedBy</td>
     <td>{{value.modifiedBy}}</td>
@@ -56,7 +56,7 @@
   </tr>
   <tr>
     <td>Status</td>
-    <td>{{value.attributes[0].attributeValue }}</td>
+    <td>{{value.status}}</td>
 
   </tr>
   <tr *ngIf="value.comments && value.comments.length>0">

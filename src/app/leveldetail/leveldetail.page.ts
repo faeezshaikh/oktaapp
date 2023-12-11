@@ -40,6 +40,10 @@ export class LeveldetailPage implements OnInit {
         return 'secondary';
       case 'In Progress':
         return 'danger';
+      case 'New':
+          return 'tertiary';
+      case 'Proposed':
+            return 'primary';
       // Add more cases as needed
       default:
         return 'medium'; // Default color if none of the conditions are met
@@ -47,7 +51,7 @@ export class LeveldetailPage implements OnInit {
   }
 
  
-  async showDetailsModal(item: Level2sChild) {
+  async showDetailsModal(item: Level2sChild | Level1sChild) {
     const modal = await this.modalCtrl.create({
       component: ModalDetailsPage,
       componentProps: { value: item, type:this.type }
