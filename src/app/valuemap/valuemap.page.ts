@@ -41,31 +41,26 @@ export class ValuemapPage implements OnInit {
 
   // }
 
-  getTriggeringStakeholders(data: MainElement) {
-    console.log('Original Data:', data.relatedElements); // Debug: Log original data
-  
+  getTriggeringStakeholders(data: MainElement, relationshipType: string) {
+
     const filteredElements = data.relatedElements
-      .filter(element => element.relationshipType === 'STAKEHOLDER_TRIGGERS_VALUE_STREAM');
-  
-    console.log('Filtered by Relationship Type:', filteredElements); // Debug: Log after filtering by relationship type
-  
+      .filter(element => element.relationshipType === relationshipType);
+    
     const processedElements = filteredElements
       .map(element => {
         const parts = element.childElementName.split('|');
         return parts.length > 0 ? parts[0].trim() : null;
       })
-      .filter(element => element !== null && (element !== '' || element.includes("Stakeholders"))) ;
-  
-    console.log('Processed Elements:', processedElements); // Debug: Log final processed elements
-  
+      .filter(element => element !== null && !element.includes("Stakeholders") && !element.includes("PRODUCTION") && (element !== '' )) ;
+
     return processedElements;
   }
   
-  getValueProp(data: MainElement) {
-    return data.relatedElements
-      .filter(element => element.relationshipType === 'VALUE_STREAM_DELIVERS_PROPOSITION')
-      .map(element => element.childElementName);
+  // getValueProp(data: MainElement) {
+  //   return data.relatedElements
+  //     .filter(element => element.relationshipType === 'VALUE_STREAM_DELIVERS_PROPOSITION')
+  //     .map(element => element.childElementName);
       
-  }
+  // }
 
 }

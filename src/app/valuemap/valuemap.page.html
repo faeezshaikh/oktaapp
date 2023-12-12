@@ -28,7 +28,7 @@
             <!-- <ion-row>&nbsp;</ion-row> -->
             <ion-row>
               <ul>
-                <li *ngFor="let element of getTriggeringStakeholders(item)" style="font-size: xx-small;">{{ element }} </li>
+                <li *ngFor="let element of getTriggeringStakeholders(item,'STAKEHOLDER_TRIGGERS_VALUE_STREAM')" style="font-size: xx-small;">{{ element }} </li>
               </ul>
                 
 
@@ -85,7 +85,7 @@
             <ion-row>
 
 
-              <span *ngFor="let element of getValueProp(item)" style="font-size: xx-small;">{{ element }} </span>
+              <span *ngFor="let element of getTriggeringStakeholders(item,'VALUE_STREAM_DELIVERS_PROPOSITION')" style="font-size: xx-small;">{{ element }} </span>
 
             </ion-row>
 
