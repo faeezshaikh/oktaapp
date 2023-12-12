@@ -25,18 +25,18 @@
 
               <fa-icon style="color:purple" [icon]="['fas', 'user']" size="2x"></fa-icon> 
             </ion-row>
-            <!-- <ion-row>&nbsp;</ion-row> -->
+        <ion-row>&nbsp;</ion-row>
             <ion-row>
-              <ul>
-                <li *ngFor="let element of getTriggeringStakeholders(item,'STAKEHOLDER_TRIGGERS_VALUE_STREAM')" style="font-size: xx-small;">{{ element }} </li>
-              </ul>
+              <!-- <ul> -->
+                <li *ngFor="let element of getTriggeringStakeholders(item,'STAKEHOLDER_TRIGGERS_VALUE_STREAM')" style="font-size: x-small;">{{ element }} </li>
+              <!-- </ul> -->
                 
 
 
              
           </ion-row>
      
-          <!-- <ion-row>&nbsp;</ion-row> -->
+  
         </ion-col>
 
         <ion-col size="10">
@@ -78,14 +78,14 @@
         <ion-col  size="1" style="text-align: center;"> 
           <ion-row>&nbsp;</ion-row>
           <ion-row>&nbsp;</ion-row>
-          <ion-row>
-              <fa-icon  style="color:#DE3163" [icon]="['fas', 'scale-balanced']" size="2x"></fa-icon> 
+          <ion-row style=" text-align: center;" >
+              <fa-icon  style="color:#DE3163; text-align: center;" [icon]="['fas', 'scale-balanced']" size="2x"></fa-icon> 
             </ion-row>
             <ion-row>&nbsp;</ion-row>
             <ion-row>
 
 
-              <span *ngFor="let element of getTriggeringStakeholders(item,'VALUE_STREAM_DELIVERS_PROPOSITION')" style="font-size: xx-small;">{{ element }} </span>
+              <ion-label *ngFor="let element of getTriggeringStakeholders(item,'VALUE_STREAM_DELIVERS_PROPOSITION')" style="font-size: small;">{{ element }} </ion-label>
 
             </ion-row>
 
