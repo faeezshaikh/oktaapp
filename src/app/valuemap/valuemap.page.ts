@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MyDataService } from '../data.service';
 import { MainElement } from '../ValueStream';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-valuemap',
@@ -11,7 +12,7 @@ export class ValuemapPage implements OnInit {
 
   data: MainElement[] = [];
 
-  constructor(private dataService: MyDataService) { }
+  constructor(private dataService: MyDataService,private route: Router) { }
 
   ngOnInit() {
 
@@ -29,18 +30,6 @@ export class ValuemapPage implements OnInit {
       
   }
 
-  // getTriggeringStakeholders(data: MainElement) {
-  //   return data.relatedElements
-  //   .filter(element => element.relationshipType === 'STAKEHOLDER_TRIGGERS_VALUE_STREAM')
-  //   .map(element => {
-  //     // Split the string by the pipe and take the part after the pipe
-  //     const parts = element.childElementName.split('|');
-  //     return parts.length > 0  ? parts[0].trim() : null;
-  //   })
-  //   .filter(element => element !== null && element !== ''); // Filter out blank or null values
-
-  // }
-
   getTriggeringStakeholders(data: MainElement, relationshipType: string) {
 
     const filteredElements = data.relatedElements
@@ -55,12 +44,15 @@ export class ValuemapPage implements OnInit {
 
     return processedElements;
   }
+
+  navigateToPage2(item: MainElement) {
+    console.log('Data:', item);
+    
+    this.route.navigate(['/valuemapdetails'], {
+      state: { data: item }
+    });
+  }
   
-  // getValueProp(data: MainElement) {
-  //   return data.relatedElements
-  //     .filter(element => element.relationshipType === 'VALUE_STREAM_DELIVERS_PROPOSITION')
-  //     .map(element => element.childElementName);
-      
-  // }
+
 
 }

@@ -77,6 +77,10 @@ const appRoutes: Routes = [
     loadChildren: () => import('./leveldetail/leveldetail.module').then( m => m.LeveldetailPageModule)
   },
   {
+    path: 'valuemapdetails',
+    loadChildren: () => import('./valuemapdetails/valuemapdetails.module').then( m => m.ValuemapdetailsPageModule)
+  },
+  {
     path: 'modal-details',
     loadChildren: () => import('./modal-details/modal-details.module').then( m => m.ModalDetailsPageModule)
   }
