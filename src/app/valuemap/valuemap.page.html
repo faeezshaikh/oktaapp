@@ -18,18 +18,28 @@
           <ion-row>&nbsp;</ion-row>
           <ion-row>&nbsp;</ion-row>
           <ion-row>&nbsp;</ion-row>
+          <!-- <ion-row>&nbsp;</ion-row>
+          <ion-row>&nbsp;</ion-row> -->
+
           <ion-row>
-              <ion-col>
-                <span style="font-size: xx-small;"> Cutomer Sales </span>
-              </ion-col>
-              <ion-col>
-                <fa-icon style="color:purple" [icon]="['fas', 'user']" size="2x"></fa-icon> 
-              </ion-col>
+
+              <fa-icon style="color:purple" [icon]="['fas', 'user']" size="2x"></fa-icon> 
+            </ion-row>
+            <!-- <ion-row>&nbsp;</ion-row> -->
+            <ion-row>
+              <ul>
+                <li *ngFor="let element of getTriggeringStakeholders(item)" style="font-size: xx-small;">{{ element }} </li>
+              </ul>
+                
+
+
+             
           </ion-row>
-          <ion-row>&nbsp;</ion-row>
+     
+          <!-- <ion-row>&nbsp;</ion-row> -->
         </ion-col>
 
-        <ion-col size="9">
+        <ion-col size="10">
 
           <ion-card style="text-align: center;" color="light">
              <ion-card-header> <ion-title>{{item.name}} </ion-title> </ion-card-header>
@@ -65,20 +75,20 @@
 
         </ion-col>
        
-        <ion-col  size="2" style="text-align: center;"> 
+        <ion-col  size="1" style="text-align: center;"> 
           <ion-row>&nbsp;</ion-row>
-          <!-- <ion-row>&nbsp;</ion-row> -->
+          <ion-row>&nbsp;</ion-row>
           <ion-row>
-            <ion-col>
-              <ion-row>&nbsp;</ion-row>
-              <ion-row>&nbsp;</ion-row>
               <fa-icon  style="color:#DE3163" [icon]="['fas', 'scale-balanced']" size="2x"></fa-icon> 
-            </ion-col>
-            <ion-col>
-              <span style="font-size: xx-small;"> Individual is positioned for success, maximizes their contributions and is committed to the company.</span>
-            </ion-col>
-          </ion-row>
-          <ion-row>&nbsp;</ion-row>
+            </ion-row>
+            <ion-row>&nbsp;</ion-row>
+            <ion-row>
+
+
+              <span *ngFor="let element of getValueProp(item)" style="font-size: xx-small;">{{ element }} </span>
+
+            </ion-row>
+
          
           
         </ion-col>
