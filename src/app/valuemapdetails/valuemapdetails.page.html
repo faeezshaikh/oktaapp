@@ -14,7 +14,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let child of item?.children">
-        <ion-card color="yellow">
+        <ion-card color="danger">
           <ion-card-content>
             {{child.name}}
           </ion-card-content>
@@ -44,7 +44,7 @@
           </ion-card-content>
         </ion-card>
         <ion-row  *ngFor="let name of getChildElementNames(child.relatedElements, 'CAPABILITY_ENABLES_VALUE_STAGE')">
-          <ion-card color="medium">
+          <ion-card color="light">
             <ion-card-content>
               {{name}}
             </ion-card-content>
