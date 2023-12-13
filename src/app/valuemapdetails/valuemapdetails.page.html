@@ -1,13 +1,57 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>valuemapdetails</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center" >{{item?.name}}</ion-title>
+
   </ion-toolbar>
+  
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">valuemapdetails</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let child of item?.children">
+        <ion-card color="yellow">
+          <ion-card-content>
+            {{child.name}}
+          </ion-card-content>
+        </ion-card>
+        <ion-row  *ngFor="let subchild of child?.children">
+          <ion-card [color]="getColor(subchild.type)" style="border-top: 3px solid orange">
+            <ion-card-content >
+              <fa-icon *ngIf="subchild.type!='VSS_KEY_ACTIVITY'" style="color:purple" [icon]= "getIcon(subchild.type)" size="2x"></fa-icon>
+            &nbsp;
+              {{subchild.name}}
+          </ion-card-content>
+          </ion-card>
+        </ion-row>
+        <ion-card style="border-top: 3px solid purple">
+          <ion-card-content>
+            <!-- <ion-col size="2">
+              <fa-icon style="color:purple" [icon]="['fas', 'user']" size="4x"></fa-icon> 
+
+            </ion-col> -->
+            <ion-col size="12">
+              <fa-icon style="color:purple" [icon]="['fas', 'user']" size="2x"></fa-icon> 
+
+              <ul>
+                <li *ngFor="let name of getChildElementNames(child.relatedElements, 'STAKEHOLDER_PARTICIPATES_IN_VALUE_STAGE')">{{name}}</li>
+              </ul>
+            </ion-col>
+          </ion-card-content>
+        </ion-card>
+        <ion-row  *ngFor="let name of getChildElementNames(child.relatedElements, 'CAPABILITY_ENABLES_VALUE_STAGE')">
+          <ion-card color="medium">
+            <ion-card-content>
+              {{name}}
+            </ion-card-content>
+          </ion-card>
+
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

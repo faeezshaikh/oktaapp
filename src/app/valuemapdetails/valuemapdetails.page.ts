@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainElement, RelatedElement } from '../ValueStream';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-valuemapdetails',
@@ -8,14 +10,57 @@ import { Router } from '@angular/router';
 })
 export class ValuemapdetailsPage implements OnInit {
 
+  item : MainElement | undefined;
   constructor(private router: Router) { }
 
   ngOnInit() {
     const navigation = this.router.getCurrentNavigation();
-    const item = navigation?.extras.state?.['data'];
+    this.item = navigation?.extras.state?.['data'];
 
-    console.log("Accepted item", item);
+    console.log("Accepted item", this.item);
 
     
   }
+
+//   getChildElementNames(relatedElements: RelatedElement[], relationshipType: string): string[] {
+//     return relatedElements
+//         .filter(element => element.relationshipType === relationshipType)
+//         .map(element => element.childElementName);
+// }
+
+
+getChildElementNames(relatedElements: RelatedElement[], relationshipType: string): string[] {
+  return relatedElements
+      .filter(element => element.relationshipType === relationshipType)
+
+      .map(element => {
+        const parts = element.childElementName.split('|');
+        return parts.length > 0 ? parts[0].trim() : '';
+      })
+      .filter(element => element !== null && !element.includes("Stakeholders") && !element.includes("PRODUCTION") && (element !== '' )) ;
+
+}
+  getColor(type: string) : string {
+    switch (type) {
+      case 'VSS_KEY_ACTIVITY':
+        return "warning";  
+      default:
+        return "";  
+}
+  }
+  getIcon(type: string): IconProp {
+    switch (type) {
+        case 'ENTRY_CRITERION':
+            return ['fas', 'right-to-bracket'];
+        case 'EXIT_CRITERION':
+            return ['fas', 'right-from-bracket'];
+        case 'VALUE_ITEM':
+          return ['fas', 'scale-balanced'];
+        // case 'VSS_KEY_ACTIVITY':
+        //     return ['fas', 'scale-balanced'];   
+        // Add more cases as needed
+        default:
+            return ['fas','square']; // default icon
+    }
+}
 }
