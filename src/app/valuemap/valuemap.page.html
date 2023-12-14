@@ -14,12 +14,11 @@
 
   <ion-grid>
     <ion-row *ngFor="let item of data">
-        <ion-col size="1"> 
+        <ion-col size="1" style="text-align: center;"> 
           <ion-row>&nbsp;</ion-row>
           <ion-row>&nbsp;</ion-row>
           <ion-row>&nbsp;</ion-row>
-          <!-- <ion-row>&nbsp;</ion-row>
-          <ion-row>&nbsp;</ion-row> -->
+    
 
           <ion-row>
 
@@ -42,9 +41,9 @@
         <ion-col size="10">
 
           <ion-card style="text-align: center;" color="light">
-             <ion-card-header > <ion-title  style="cursor: pointer;" (click)="navigateToPage2(item)">{{item.name}} </ion-title> </ion-card-header>
-              <ion-card-content >
-                <ion-row>
+             <ion-card-header > <strong  style="cursor: pointer;" (click)="navigateToPage2(item)">{{item.name}} </strong> </ion-card-header>
+              <ion-card-content  >
+                <ion-row >
                   <ion-col size="1">
                     <fa-icon style="color:grey" [icon]="['fas', 'chevron-right']" size="2x"></fa-icon> 
                     <fa-icon style="color:grey" [icon]="['fas', 'chevron-right']" size="2x"></fa-icon> 
@@ -71,6 +70,7 @@
               <fa-icon style="color:grey" [icon]="['fas', 'chevron-right']" size="2x"></fa-icon> 
               <fa-icon style="color:grey" [icon]="['fas', 'chevron-right']" size="2x"></fa-icon> 
               <fa-icon style="color:grey" [icon]="['fas', 'chevron-right']" size="2x"></fa-icon> 
+              
              </ion-col>
             </ion-row>
           
