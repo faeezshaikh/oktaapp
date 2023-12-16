@@ -83,6 +83,10 @@ const appRoutes: Routes = [
   {
     path: 'modal-details',
     loadChildren: () => import('./modal-details/modal-details.module').then( m => m.ModalDetailsPageModule)
+  },
+  {
+    path: 'filter',
+    loadChildren: () => import('./filter/filter.module').then( m => m.FilterPageModule)
   }
 ];
 @NgModule({

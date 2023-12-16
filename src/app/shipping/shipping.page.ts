@@ -5,6 +5,7 @@ import { CardDetailsPage } from '../card-details/card-details.page';
 import { ModalController, NavController } from '@ionic/angular';
 import { LeveldetailPage } from '../leveldetail/leveldetail.page';
 import { Capability, Level1sChild } from '../Capability';
+import { FilterPage } from '../filter/filter.page';
 
 
 @Component({
@@ -78,7 +79,8 @@ export class ShippingPage implements OnInit {
   }
   async openModal() {
     const modal = await this.modalCtrl.create({
-      component: CardDetailsPage,
+      component: FilterPage,
+      componentProps: { value: this.data}
     });
     modal.present();
 

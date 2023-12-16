@@ -9,20 +9,26 @@
             <ion-col>
               <ion-avatar>
                 <img   alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          
               </ion-avatar>
             </ion-col>
             <ion-col></ion-col>
           </ion-row>
           <!-- <p>&nbsp;</p> -->
+
+       
+
+        
+       
           <ion-row>
             <ion-col></ion-col>
-            <ion-col style="text-align: center;">
-              <ion-label>{{username}}</ion-label>
-              <ion-note>{{email}}</ion-note>
-            </ion-col>
+            <ion-col>  <span>v 1.0.0</span></ion-col>
             <ion-col></ion-col>
+          
           </ion-row>
-       
+          <ion-row>
+            <ion-col><p></p></ion-col>
+          </ion-row>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
