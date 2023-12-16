@@ -3,6 +3,9 @@ import { MyDataService } from '../data.service';
 import { MainElement } from '../ValueStream';
 import { Router } from '@angular/router';
 
+import { ModalDetailsPage } from '../modal-details/modal-details.page';
+import { ModalController } from '@ionic/angular';
+
 @Component({
   selector: 'app-valuemap',
   templateUrl: './valuemap.page.html',
@@ -12,7 +15,7 @@ export class ValuemapPage implements OnInit {
 
   data: MainElement[] = [];
 
-  constructor(private dataService: MyDataService,private route: Router) { }
+  constructor(private dataService: MyDataService,private route: Router,private modalCtrl: ModalController) { }
 
   ngOnInit() {
 
@@ -53,6 +56,18 @@ export class ValuemapPage implements OnInit {
     });
   }
   
+  async openModal(item:any) {
+    const modal = await this.modalCtrl.create({
+      component: ModalDetailsPage,
+      componentProps: { value: item }
+    });
+    modal.present();
 
+    const { data, role } = await modal.onWillDismiss();
+
+  }
+
+ 
+  
 
 }
