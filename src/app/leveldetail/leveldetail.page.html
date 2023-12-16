@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
 
-  <ion-toolbar color="{{ type === 'Tier' ? 'secondary' : 'warning'}}">
+  <!-- <ion-toolbar color="{{ type === 'Tier' ? 'secondary' : 'warning'}}"> -->
+    <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title style="color:purple;"  style="text-align: center">{{ type === 'Tier' ? 'L1' : 'L2'}} - {{ name }}</ion-title>
+    <ion-title style="color:purple;"  style="text-align: center">{{ name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
