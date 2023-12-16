@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainElement, RelatedElement } from '../ValueStream';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IonSegmentButton } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-valuemapdetails',
@@ -11,6 +13,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 export class ValuemapdetailsPage implements OnInit {
 
   item : MainElement | undefined;
+  selectedSegment = 'home';
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -62,5 +65,10 @@ getChildElementNames(relatedElements: RelatedElement[], relationshipType: string
         default:
             return ['fas','square']; // default icon
     }
+}
+
+segmentChanged(ev: any) {
+  console.log('Segment changed to', this.selectedSegment);
+  console.log(ev.detail.value)
 }
 }

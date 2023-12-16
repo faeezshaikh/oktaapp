@@ -11,6 +11,30 @@
 
 
 <ion-content [fullscreen]="true">
+  <ion-segment [scrollable]="true" [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="home" >
+      <fa-icon   [icon]="['fas', 'house']" size="2x"></fa-icon> 
+    </ion-segment-button>
+    
+    <ion-segment-button value="entry">
+      <fa-icon   [icon]="['fas', 'right-to-bracket']" size="2x"></fa-icon> 
+    </ion-segment-button>
+    <ion-segment-button value="exit">
+      <fa-icon   [icon]="['fas', 'right-from-bracket']" size="2x"></fa-icon> 
+    </ion-segment-button>
+    <ion-segment-button value="scale">
+      <fa-icon   [icon]="['fas', 'scale-balanced']" size="2x"></fa-icon> 
+    </ion-segment-button>
+    <ion-segment-button value="user">
+      <fa-icon   [icon]="['fas', 'user']" size="2x"></fa-icon> 
+    </ion-segment-button>
+    <ion-segment-button value="key">
+      <fa-icon   [icon]="['fas', 'key']" size="2x"></fa-icon> 
+    </ion-segment-button>
+    <ion-segment-button value="C">
+      <fa-icon   [icon]="['fas', 'c']" size="2x"></fa-icon> 
+    </ion-segment-button>
+  </ion-segment>
   <ion-grid>
     <ion-row>
       <ion-col size="1" style="text-align: center;">
@@ -33,20 +57,48 @@
           </ion-card-content>
         </ion-card>
         <ion-row  *ngFor="let subchild of child?.children">
-          <ion-card [color]="getColor(subchild.type)" style="border-top: 3px solid orange">
+
+          <ion-card  *ngIf="(selectedSegment == 'entry' || selectedSegment == 'home' ) && subchild.type=='ENTRY_CRITERION'" [color]="getColor(subchild.type)" style="border-top: 3px solid orange">
             <ion-card-content >
-              <fa-icon *ngIf="subchild.type!='VSS_KEY_ACTIVITY'" style="color:purple" [icon]= "getIcon(subchild.type)" size="2x"></fa-icon>
+              <fa-icon style="color:purple" [icon]= "getIcon(subchild.type)" size="2x"></fa-icon>
             &nbsp;
               {{subchild.name}}
           </ion-card-content>
           </ion-card>
-        </ion-row>
-        <ion-card style="border-top: 3px solid purple">
-          <ion-card-content>
-            <!-- <ion-col size="2">
-              <fa-icon style="color:purple" [icon]="['fas', 'user']" size="4x"></fa-icon> 
 
-            </ion-col> -->
+          <ion-card  *ngIf="(selectedSegment == 'exit' || selectedSegment == 'home')  && subchild.type=='EXIT_CRITERION'" [color]="getColor(subchild.type)" style="border-top: 3px solid orange">
+            <ion-card-content >
+              <fa-icon  style="color:purple" [icon]= "getIcon(subchild.type)" size="2x"></fa-icon>
+            &nbsp;
+              {{subchild.name}}
+          </ion-card-content>
+          </ion-card>
+
+
+          <ion-card *ngIf="(selectedSegment == 'scale' || selectedSegment == 'home') && subchild.type=='VALUE_ITEM' " [color]="getColor(subchild.type)" style="border-top: 3px solid orange">
+            <ion-card-content >
+              <fa-icon  style="color:purple" [icon]= "getIcon(subchild.type)" size="2x"></fa-icon>
+            &nbsp;
+              {{subchild.name}}
+          </ion-card-content>
+          </ion-card>
+
+
+          <ion-card *ngIf="(selectedSegment == 'key' || selectedSegment == 'home' ) && subchild.type=='VSS_KEY_ACTIVITY'" [color]="getColor(subchild.type)" style="border-top: 3px solid orange">
+            <ion-card-content >
+           
+            &nbsp;
+              {{subchild.name}}
+          </ion-card-content>
+          </ion-card>
+
+
+        
+
+
+        </ion-row>
+        <ion-card style="border-top: 3px solid purple" *ngIf="selectedSegment == 'user' || selectedSegment == 'home' ">
+          <ion-card-content>
             <ion-col size="12">
               <fa-icon style="color:purple" [icon]="['fas', 'user']" size="2x"></fa-icon> 
 
@@ -56,8 +108,8 @@
             </ion-col>
           </ion-card-content>
         </ion-card>
-        <ion-row  *ngFor="let name of getChildElementNames(child.relatedElements, 'CAPABILITY_ENABLES_VALUE_STAGE')">
-          <ion-card color="light">
+        <ion-row *ngFor="let name of getChildElementNames(child.relatedElements, 'CAPABILITY_ENABLES_VALUE_STAGE')">
+          <ion-card color="light"  *ngIf="selectedSegment == 'C' || selectedSegment == 'home' ">
             <ion-card-content>
               {{name}}
             </ion-card-content>
