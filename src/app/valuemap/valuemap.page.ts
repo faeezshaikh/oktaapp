@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyDataService } from '../data.service';
-import { MainElement } from '../ValueStream';
+import { MainElement } from '../structure/ValueStream';
 import { Router } from '@angular/router';
 
 import { ModalDetailsPage } from '../modal-details/modal-details.page';

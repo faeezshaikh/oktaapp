@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MainElement, RelatedElement } from '../ValueStream';
+import { MainElement, RelatedElement } from '../structure/ValueStream';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { IonSegmentButton } from '@ionic/angular';
 

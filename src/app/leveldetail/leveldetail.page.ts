@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Capability, Level1sChild, Level2sChild } from '../Capability';
+import { Capability, Level1sChild, Level2sChild } from '../structure/Capability';
 import { ModalController } from '@ionic/angular';
 import { ModalDetailsPage } from '../modal-details/modal-details.page';
 

@@ -4,7 +4,7 @@ import { MyDataService } from '../data.service';
 import { CardDetailsPage } from '../card-details/card-details.page';
 import { ModalController, NavController } from '@ionic/angular';
 import { LeveldetailPage } from '../leveldetail/leveldetail.page';
-import { Capability, Level1sChild } from '../Capability';
+import { Capability, Level1sChild } from '../structure/Capability';
 import { FilterPage } from '../filter/filter.page';
 
 
