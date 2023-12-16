@@ -6,6 +6,7 @@ import { ModalController, NavController } from '@ionic/angular';
 import { LeveldetailPage } from '../leveldetail/leveldetail.page';
 import { Capability, Level1sChild } from '../structure/Capability';
 import { FilterPage } from '../filter/filter.page';
+import { FilteredCapability } from '../structure/FilteredCapability';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ShippingPage implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
 
   data: Capability[] = [];
-  filteredData: Capability[] = [];
+  filteredData: FilteredCapability[] = [];
   searchTerm: string = '';
   constructor(private dataService: MyDataService,private modalCtrl: ModalController,private route: Router) {}
 
@@ -29,7 +30,10 @@ export class ShippingPage implements OnInit {
     this.dataService.getData().subscribe(
       (results: Capability[]) => {
         this.data = results;
-        this.filteredData= results; 
+        this.filteredData = results.map(cap => ({
+          capability: cap,
+          matchingChildren: cap.children
+        })); 
         console.log('Caps' + this.data);
         
       },
@@ -41,29 +45,30 @@ export class ShippingPage implements OnInit {
   }
 
   filterData() {
+    this.filteredData = []; // Clear existing filtered data
+
     if (!this.searchTerm) {
-      this.filteredData = this.data;
+      // If no search term, populate with all capabilities and their children
+      this.filteredData = this.data.map(cap => ({
+        capability: cap,
+        matchingChildren: cap.children
+      }));
       return;
     }
-
-    // this.filteredData = this.data.filter(card => 
-    //   card.Name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-    //   card.Type.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-    //   card.InternalId.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-    //   card.Children.some(child => 
-    //     child.Name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-    //     child.Type.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-    //     child.Description.toLowerCase().includes(this.searchTerm.toLowerCase())
-    //   )
-    // );
-
- 
-    this.filteredData = this.data.filter(card => 
-      card.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      card.children.some(child => 
-        child.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
-      )
-    ;
+  
+    // Filter logic
+    this.data.forEach(cap => {
+      const matchingChildren = cap.children.filter(child => 
+        child.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+  
+      if (cap.name.toLowerCase().includes(this.searchTerm.toLowerCase()) || matchingChildren.length > 0) {
+        this.filteredData.push({
+          capability: cap,
+          matchingChildren: matchingChildren
+        });
+      }
+    });
   }
 
   navigateToPage(item: Capability ) {

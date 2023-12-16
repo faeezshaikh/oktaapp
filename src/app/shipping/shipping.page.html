@@ -20,21 +20,20 @@
 
   <div>
 
-    <ion-grid > 
-      
-      <ion-row >
-
-        <ion-col size="4" *ngFor="let item of filteredData">
-          <ion-card  class="ion-text-center" color="medium" (click)="navigateToPage(item)">
+    <ion-grid> 
+      <ion-row>
+        <ion-col size="4" *ngFor="let filteredItem of filteredData">
+          <!-- Display Capability Card -->
+          <ion-card class="ion-text-center" color="medium" (click)="navigateToPage(filteredItem.capability)">
             <ion-card-header>
-              <ion-card-title>{{ item.name }}</ion-card-title>
+              <ion-card-title>{{ filteredItem.capability.name }}</ion-card-title>
             </ion-card-header>
           </ion-card>
-
+    
+          <!-- Display Matching Children Cards -->
           <ion-grid>
-            <ion-row *ngFor="let child of item?.children">
-              <ion-card  class="ion-text-center" style="width: 100% !important;"
-                 (click)="navigateToPage2(child,item.name)"  color="light">
+            <ion-row *ngFor="let child of filteredItem.matchingChildren">
+              <ion-card class="ion-text-center" style="width: 100% !important;" (click)="navigateToPage2(child, filteredItem.capability.name)" color="light">
                 <ion-card-header>
                   <ion-card-title>{{ child.name }}</ion-card-title>
                 </ion-card-header>
@@ -42,9 +41,8 @@
             </ion-row>
           </ion-grid>
         </ion-col>
-
-       
       </ion-row>
     </ion-grid>
+    
   </div>
 </ion-content>
