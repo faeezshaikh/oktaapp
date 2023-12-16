@@ -17,8 +17,20 @@ export class LoginPage {
   username: string = '';
   password: string = '';
   showAnimation: boolean = false;
+
+  gifSource: string | undefined;
+  staticGif: string = './assets/static.gif';
+  animatedGif: string = './assets/fedex_anime.gif';
+
    
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+    this.showAnimation = false;
+   }
+
+  ngOnInit(): void {
+   
+    this.showAnimatedGif();
+  }
 
   login() {
     if (this.authService.login(this.username, this.password)) {
@@ -29,5 +41,23 @@ export class LoginPage {
       this.loginError = true;
       this.showAnimation = !this.showAnimation;
     }
+  }
+
+
+  showAnimatedGif(): void {
+    this.gifSource = this.animatedGif;
+
+    // Assuming the animation takes 5 seconds, change to static after that
+    setTimeout(() => {
+      this.gifSource = this.staticGif;
+    }, 1350); // 5000 milliseconds = 5 seconds
+  }
+
+  onMouseOver(): void {
+    this.gifSource = this.animatedGif;
+  }
+
+  onMouseOut(): void {
+    this.gifSource = this.staticGif;
   }
 }
