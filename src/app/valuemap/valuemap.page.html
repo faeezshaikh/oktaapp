@@ -53,7 +53,7 @@
 
              <ion-col size="11">
                   <ion-row >
-                    <ion-card  *ngFor="let child of item.children" color="warning">
+                    <ion-card  *ngFor="let child of item.children" color="warning" (click)="openModal(child)" style="cursor: pointer;" >
                       <ion-card-content >
                        <span style="font-size: small;"> {{child.name}} </span>
                       
