@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AppRoutingModule } from './app-routing.module';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
@@ -95,6 +96,7 @@ const appRoutes: Routes = [
     HttpClientModule, 
     IonicModule.forRoot(),
     //  AppRoutingModule,
+    BrowserAnimationsModule,
      FontAwesomeModule,
     RouterModule.forRoot(appRoutes),
     OktaAuthModule.forRoot({ oktaAuth })
