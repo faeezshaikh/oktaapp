@@ -27,7 +27,6 @@
         <ion-col size="4" *ngFor="let item of filteredData">
           <ion-card  class="ion-text-center" color="medium" (click)="navigateToPage(item)">
             <ion-card-header>
-              <!-- <fa-icon [icon]="['fas', 'scale-balanced']" size="2x"></fa-icon> -->
               <ion-card-title>{{ item.name }}</ion-card-title>
             </ion-card-header>
           </ion-card>
@@ -38,14 +37,8 @@
                  (click)="navigateToPage2(child,item.name)"  color="light">
                 <ion-card-header>
                   <ion-card-title>{{ child.name }}</ion-card-title>
-
                 </ion-card-header>
-              
-                <!-- <ion-card-content> {{ child.Description }} </ion-card-content> -->
               </ion-card>
-
-        
-
             </ion-row>
           </ion-grid>
         </ion-col>
