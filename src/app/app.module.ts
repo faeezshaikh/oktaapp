@@ -13,6 +13,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { NgxGoogleAnalyticsModule , NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
 
 import { Routes, RouterModule } from '@angular/router';
 import {
@@ -99,6 +100,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
      FontAwesomeModule,
     RouterModule.forRoot(appRoutes),
+    NgxGoogleAnalyticsModule.forRoot('G-C7H18NP0Q1'),
+    NgxGoogleAnalyticsRouterModule,
     OktaAuthModule.forRoot({ oktaAuth })
  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
