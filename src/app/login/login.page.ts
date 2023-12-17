@@ -46,11 +46,9 @@ export class LoginPage {
 
   showAnimatedGif(): void {
     this.gifSource = this.animatedGif;
-
-    // Assuming the animation takes 5 seconds, change to static after that
     setTimeout(() => {
       this.gifSource = this.staticGif;
-    }, 1350); // 5000 milliseconds = 5 seconds
+    }, 1350); 
   }
 
   onMouseOver(): void {
