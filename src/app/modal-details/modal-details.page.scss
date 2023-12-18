@@ -13,3 +13,10 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  * {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
