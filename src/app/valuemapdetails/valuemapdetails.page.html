@@ -84,7 +84,7 @@
           </ion-card>
 
 
-          <ion-card *ngIf="(selectedSegment == 'key' || selectedSegment == 'home' ) && subchild.type=='VSS_KEY_ACTIVITY'" [color]="getColor(subchild.type)" style="border-top: 3px solid FF6200">
+          <ion-card *ngIf="(selectedSegment == 'key' || selectedSegment == 'home' ) && subchild.type=='VSS_KEY_ACTIVITY'" [color]="getColor(subchild.type)" (click)="openModal(subchild)" button style="border-top: 3px solid FF6200">
             <ion-card-content >
            
             &nbsp;

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainElement, RelatedElement } from '../structure/ValueStream';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { IonSegmentButton } from '@ionic/angular';
+import { IonSegmentButton, ModalController } from '@ionic/angular';
+import { ModalDetailsPage } from '../modal-details/modal-details.page';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ValuemapdetailsPage implements OnInit {
 
   item : MainElement | undefined;
   selectedSegment = 'home';
-  constructor(private router: Router) { }
+  constructor(private router: Router,private modalCtrl: ModalController) { }
 
   ngOnInit() {
     const navigation = this.router.getCurrentNavigation();
@@ -71,4 +72,16 @@ segmentChanged(ev: any) {
   console.log('Segment changed to', this.selectedSegment);
   console.log(ev.detail.value)
 }
+
+async openModal(item:any) {
+  const modal = await this.modalCtrl.create({
+    component: ModalDetailsPage,
+    componentProps: { value: item }
+  });
+  modal.present();
+
+  const { data, role } = await modal.onWillDismiss();
+
+}
+
 }
