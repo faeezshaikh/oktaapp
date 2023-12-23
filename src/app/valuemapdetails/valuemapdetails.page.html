@@ -51,7 +51,7 @@
       <ion-card-content>
     <ion-row>
       <ion-col *ngFor="let child of item?.children">
-        <ion-card color="danger">
+        <ion-card color="warning">
           <ion-card-content>
            <strong> {{child.name}} </strong>
           </ion-card-content>
@@ -84,7 +84,7 @@
           </ion-card>
 
 
-          <ion-card *ngIf="(selectedSegment == 'key' || selectedSegment == 'home' ) && subchild.type=='VSS_KEY_ACTIVITY'" [color]="getColor(subchild.type)" style="border-top: 3px solid orange">
+          <ion-card *ngIf="(selectedSegment == 'key' || selectedSegment == 'home' ) && subchild.type=='VSS_KEY_ACTIVITY'" [color]="getColor(subchild.type)" style="border-top: 3px solid FF6200">
             <ion-card-content >
            
             &nbsp;

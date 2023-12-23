@@ -46,7 +46,7 @@ getChildElementNames(relatedElements: RelatedElement[], relationshipType: string
   getColor(type: string) : string {
     switch (type) {
       case 'VSS_KEY_ACTIVITY':
-        return "warning";  
+        return "fedexorange";  
       default:
         return "";  
 }
