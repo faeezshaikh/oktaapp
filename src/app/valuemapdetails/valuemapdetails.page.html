@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/valuemap"></ion-back-button>
     </ion-buttons>
-    <ion-title style="text-align: center" >{{item?.name}}</ion-title>
+    <ion-title style="text-align: center; cursor: pointer;" (click)="openModal(item)"  >{{item?.name}}</ion-title>
 
   </ion-toolbar>
   
@@ -51,7 +51,7 @@
       <ion-card-content>
     <ion-row>
       <ion-col *ngFor="let child of item?.children">
-        <ion-card color="warning">
+        <ion-card color="warning" (click)="openModal(child)" button>
           <ion-card-content>
            <strong> {{child.name}} </strong>
           </ion-card-content>
